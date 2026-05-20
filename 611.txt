@@ -1,0 +1,538 @@
+AFO 611
+Utilisateurs et autorisations
+611.1 Introduction
+Le système dispose d’un certain nombre de mécanismes sophistiqués de sécurité dont le contrôle des mots de passe constitue l’élément principal. La gestion des utilisateurs, AFO 611, vous permet de protéger votre système de manière optimale.
+Fonctions et caractéristiques de connexion
+Pour ouvrir une session, l’utilisateur doit entrer un ID utilisateur. Ce dernier possède les fonctions suivantes :
+• détermination des autorisations au sein du système ;
+• détermination de la langue dans laquelle l’utilisateur communique avec le système (néerlandais, anglais ou français).
+Les IDs utilisateurs peuvent comporter au minimum trois et au maximum 50 caractères. Les mots de passe peuvent être constitués de symboles numériques, de symboles alphanumériques ainsi que de caractères spéciaux ou de leur combinaison. Les seuls caractères non autorisés sont ^ (flèche vers le haut) _ (tiret bas) et ~ (tilde).
+Les données suivantes sont liées aux IDs utilisateurs :
+• un nom, affiché lors de l’ouverture de la session ;
+• la langue employée par le système afin de communiquer avec l’utilisateur ;
+• les fichiers auxquels l’utilisateur a accès ;
+• les paramètres auxquels l’utilisateur a accès ;
+• un mot de passe ; celui-ci est facultatif (mais son utilisation est recommandée) ;
+• les AFO auxquelles l’utilisateur a accès ;
+• l’autorisation permettant de démarrer des activités en "mémoire" (c’est-à-dire ultérieurement).
+Le système distingue les types d’ID’s utilisateurs:
+• l’ID utilisateur système ;
+• les IDs utilisateurs possédant un statut particulier
+• les IDs utilisateurs "normaux".
+L’utilisateur système
+L’ID utilisateur système se distingue par rapport aux autres IDs utilisateurs, grâce aux caractéristiques suivantes :
+L’ID utilisateur du système offre des possibilités supplémentaires au sein de certains modules du système, par exemple au niveau de la gestion des mots de passe.
+L’ID utilisateur système peut passer outre les verrous posés par le système à différents endroits du logiciel.
+IDs utilisateurs possédant un statut particulier
+AAA – AutomaticSaveLists : Les nouvelles notices bibliographiques et les nouveaux exemplaires seront automatiquement enregistrés dans un des paniers de l’utilisateur appelé « Automatic Save Lists » (code utilisateur AAA). Les paniers sont générés pour les premiers exemplaires ajoutés à une notice et pour les nouveaux exemplaires (par année et par mois).
+Le panier AFVGPK contient une liste de notices bibliographiques qui n’ont plus de cote de rangement (tous les exemplaires ont été supprimés).
+Utilisation générale : Tout le monde peut voir les paniers automatiques en utilisant l’option « Consulter les paniers de l’utilisateur [PW] », puis en sélectionnant « Automatic save Lists ».
+VUBISWEB – WebOpac user: Cela peut être utilisé pour récupérer les informations de transactions liées à l’usager, comme ajouter un nouvel usager, modifier les informations d’un usager via le catalogue public.
+PUB – WebOpac Public user: Cela peut être utilisé pour les rapports STI des transactions de prêt via le catalogue public, comme les réservations, les prolongations, les demandes de prêts interbibliothèques.
+Uniquement les utilisateurs avec les privilèges SYS! Pour l’AFO 141 sont autorisés à modifier / supprimer le contenu des paniers automatiques.
+Les IDs utilisateurs "normaux".
+Ce sont tous les autres IDs utilisateurs.
+Cryptage du mot de passe
+Cette fonction fournit un mécanisme pour permettre aux clients d’utiliser des mots de passe cryptés pour la connexion à l’application (aussi bien qu’aux Preferences du WebOpac). La fonction cryptage est optionnelle. Le paramètre n’est pas interactif et ne peut être paramétré que par le personnel d’Infor.
+Autorisation
+Divers types d’autorisations sont associés à chaque ID utilisateur. Vous en trouverez une description ci-dessous:
+Accès aux fichiers
+Chaque fichier bibliographique se caractérise par un numéro. Ces numéros sont associés à chaque ID utilisateur permettant d’accéder aux fichiers.
+Accès aux paramètres
+Chaque paramètre au sein du système est identifié au moyen d’un code. Ces codes sont associés à chaque ID utilisateur permettant d’accéder aux paramètres.
+Accès aux AFO
+Les données permettant d’accéder aux différentes AFO sont associées à chaque ID utilisateur.
+Attention!
+Un ID utilisateur permettant d’accéder à l’AFO 611 "Utilisateurs et autorisations" ne peut offrir un accès à d’autres IDs utilisateurs que pour les AFO auxquels cet ID utilisateur a lui-même accès. Par contre, l’ID utilisateur du système vous permet d’accéder à toutes les AFO.
+Sécurité supplémentaire
+Outre les mots de passe, le système comporte d’autres mécanismes de sécurité. Vous en trouverez une description ci-dessous.
+Mot de passe
+Un mot de passe peut être associé à chaque ID utilisateur. Ce mot de passe demeure invisible dans le système. Au sein de la gestion des utilisateurs, vous pouvez déterminer si, pour chaque ID utilisateur, le mot de passe doit ou non être demandé lors de l’ouverture d’une session. Les utilisateurs peuvent eux-mêmes modifier ce mot de passe. Toutefois, cette opération ne fait pas partie de la gestion des utilisateurs, étant donné que le mot de passe en question est invisible même pour l’administrateur du système. Ce mot de passe joue un rôle uniquement lors de l’ouverture d’une session ; les autorisations et autres procédures du même type sont associées à l’ID utilisateur et non pas au mot de passe. Notons qu’il est possible de limiter la durée de validité de ce mot de passe. Quand ce délai expire, l’utilisateur doit modifier son mot de passe lors de l’ouverture d’une session. Le système avertit l’utilisateur lors de l’ouverture de session, quelques jours avant la date d’échéance d’un mot de passe.
+Si vous souhaitez utiliser le cryptage pour les mots de passe du personnel, veuillez contacter le service d'assistance Infor. V-smart prend en charge le cryptage AES standard de l'industrie.
+Note
+Quand Argus est utilisé pour le SSO :
+• les utilisateurs doivent avoir un mot de passe
+• le système propose l’écran de connexion Argus au lieu de l’écran V-smart (qui ne sera pas montré)
+Consultez l'aide générale sur Argus pour plus d'informations.
+Code d’accès "spécial"
+Un code d’accès dit "spécial" peut être associé à chaque activité. Ceci permet de protéger davantage les activités en question. Avant de pouvoir accéder aux AFO protégées de cette manière, les utilisateurs doivent entrer ce code spécial. Ce code d'accès est défini en AFO 611 – Modification code d’accès. Dans l’AFO 611 – Autorisations par AFO, vous pouvez déterminer pour chaque AFO si le code d'accès spécial est nécessaire.
+Autorisations passives (de lecture seule) et actives (système : Sys!)
+Au sein de l’AFO 243 "Gestion des budgets", de l’AFO 423 "Gestion des documents", de l’AFO 461 "Gestion des administrateurs, le système distingue les services de lecture des services de système (Sys!). Un ID utilisateur lié uniquement à un service de lecture ne permet en général que de visualiser et d’imprimer des données. En revanche, un ID utilisateur lié à
+des services de système (Sys!) permet également de supprimer, de mettre à jour, d’ajouter, de saisir etc. des données.
+Masquer les AFO
+Vous pouvez masquer l’accès aux AFO pour chaque porte (logique) ; ainsi, vous serez en mesure d’indiquer quelles AFO peuvent être accessibles ou non sur une porte (poste de travail). Vous pouvez définir ceci dans l’AFO 612 "Gestion des ports". Cela vous permet d’associer de manière standard un ID utilisateur déterminé à certaines portes (logiques). Lors de l’ouverture d’une session, le système ne vous demandera plus d’entrer votre ID utilisateur, mais sélectionnera automatiquement l’ID utilisateur associé à la porte en question.
+Suite au lancement de l’AFO 611, un écran de menu sera affiché:
+Les options du menu seront expliquées séparément dans les paragraphes suivants.
+611.2
+611.2 Gestion utilisateursGestion utilisateurs
+Cette option du menu vous permet de créer et de supprimer des IDs utilisateurs, ainsi que de d’enregistrer les autorisations nécessaires.
+Si vous sélectionnez cette option du menu, un écran de saisie s’affiche:
+Entrez un ID, vous pouvez également en sélectionner un dans la liste déroulante.
+Lorsque vous entrez un ID utilisateur qui n’existe pas encore, le système affiche automatiquement l’écran de saisie destiné aux nouveaux IDs utilisateurs.
+Lorsque vous entrez/sélectionnez un ID utilisateur, un écran-sommaire affiche les données associées á l’ID utilisateur en question que vous pouvez modifier au besoin à ce niveau.
+Zones sur l'écran
+Nom: Entrez le nom associé à l’utilisateur. Ce nom ne peut pas être constitué uniquement de signes de ponctuation et ne peut dépasser 100 caractères.
+Langue: Sélectionnez la langue dans laquelle l’utilisateur souhaite communiquer avec le système de la liste déroulante. La langue paramétrée dans les Préférences d’un utilisateur prend le pas sur les autres langues définies ici. Tant que les cookies n’ont pas été enregistrés, les paramètres définis dans l’AFO 611 seront toujours utilisés.
+Accès au(x) fichier(s): Entrez les bases de données auxquelles cet utilisateur peut se connecter. Les fichiers sont identifiés au moyen d’un chiffre. Séparez plusieurs chiffres par une virgule. Le numéro du fichier est en général “2”.
+Connexion avec code d'accès : Indiquez si, lors de l’ouverture d’une session, après avoir saisi l’ID utilisateur, vous devez également entrer un mot de passe. Si cette option est Active, à la première connexion le mot de passe est identique à l’ID. La première fois que le nouvel utilisateur se connecte, le système lui demandera de modifier son mot de passe.
+Permis de basculer vers Inst/Loc(s): Entrez les institutions et/ou localisations auxquelles cet utilisateur a accès. Exemples : OBG/C, OBG/W ou OBG/* ou * etc. Tapez “*” (astérisque) si
+l’ID utilisateur permet d’accéder à toutes les institutions et/ou localisations. Séparez les codes destinés aux institutions de ceux destinés aux localisations au moyen de “/” (barre oblique) ; séparez plusieurs institutions/localisations par des virgules.
+Option mémoire: Indiquez si l’option mémoire peut être utilisée par cet utilisateur. Ceci signifie que certaines activités pourront être démarrées ultérieurement.
+Courriel: Introduisez le courriel (facultatif). Ceux-ci peuvent être employés ailleurs dans le système, par exemple sur l'écran sommaire d’une notice bibliographique.
+Sélectionner point(s) service requis: Quand les points service pour messages de réservations sont utilisés (consultez l'aide de l'AFO 618 pour plus de détails) vous pouvez indiquer ici quels points service sont liés à cet utilisateur.
+Inst/Loc(s) pour modif. d'exes: Indiquez pour quelle combinaison d'institution/localisation cet utilisateur peut modifier les informations d'exemplaires. Vous pouvez saisir INST/* pour toutes les localisations dans une institution ou simplement * pour le système entier.
+Inst/Loc(s) pour suppression d'exes: Indiquez pour quelle combinaison d'institution/localisation cet utilisateur peut supprimer des exemplaires et des cotes de rangement. Vous pouvez saisir INST/* pour toutes les localisations dans une institution ou simplement * pour le système entier.
+Nbre de lignes par page pour les listes par défaut: La valeur par défaut 30 sera outrepassée par tout autre paramétrage (entre 10 et 99) dans cette zone, pour cet utilisateur.
+Changer les colonnes sur les grilles: Cette option indique au système si cet utilisateur est autorisé à modifier la position des colonnes sur n’importe quelle grille. En plus d’ « autorisé » ou de « pas autorisé », une troisième option permet à cet utilisateur d’autoriser leur modification par TOUS les utilisateurs. Voir l’introduction générale de V-smart pour plus d’information sur cette fonction.
+Id. système externe: Cette zone est liée aux Web services de la Smartcard pour la connexion. Cette zone peut contenir l’ID externe de connexion associé à l’ID utilisateur V-smart affiché sur l’écran d’accueil. Cet ID externe ne sera pas obligatoire et s’il est présent il ne sera validé par rapport à AUCUNE liste.
+Autoriser le traitement du fichier potentiel crée par utilisateur(s): Un usager ne peut transformer les sélections en commandes que pour les fichiers qu’il a lui-même créés et les fichiers créés par les utilisateurs saisis dans cette zone. Plusieurs utilisateurs doivent être séparés par une virgule.
+Sélection de route de bibliothèque mobile: quand le paramètre est à Oui, le système propose au membre du personnel de se connecter pour sélectionner l’arrêt de la route en cours. Voir le document sur les bibliothèques mobiles pour plus d’information sur ce module.
+Inst/Loc(s) pour mise à jour notices usagers: Indiquez pour quelle combinaison d'institution/localisation cet utilisateur peut modifier les informations d'usagers. Vous pouvez saisir INST/* pour toutes les localisations dans une institution ou simplement * pour le système entier.
+Ne pas enregistrer les filtres dans les grilles : Il est possible de définir des filtres spéciaux pour des écrans spécifiques, qui peuvent être automatiquement enregistrés s'ils sont définis. Quand ce paramètre est Désactivé, alors le fait de décocher la case Enregistrer ce filtre n’affecte que les détails saisis à ce moment (c’est-à-dire qu’ensuite il sera Activé à nouveau). Voir le document général sur V-smart pour plus d’informations.
+Rôle d’autorisations: est lié à une liste déroulante avec tous les rôles d’autorisations définis. A partir de là, un rôle d’autorisations peut être associé à l’utilisateur sélectionné. Voir le chapitre 15 pour plus d'informations sur cette fonctionnalité.
+Ceci est un Rôle d’autorisations: si ce paramètre est coché pour un utilisateur, alors cet utilisateur a les caractéristiques d’un rôle d’autorisations. Cela implique que toutes les autorisations et restrictions définies pour utilisateur forment un ensemble qui peut être copié. Voir le chapitre 15 pour plus d'informations sur cette fonctionnalité.
+Lorsque vous avez saisi ces données, un écran récapitulatif s’affiche:
+Notes
+La Date de modification du mot de passe peut être celle de V-smart ou bien d’Argus. Si Argus est utilisé, ce sera toujours celle d’Argus, ce qui est indiqué par un astérisque. Consultez l'aide générale sur Argus pour plus d'informations.
+Si votre bibliothèque a activé eID (Electronic Identification) il est possible de se connecter avec une carte eID. Dans ce cas, un champ supplémentaire (eID) sera affiché sur cet écran. Voir la documentation sur eID (dans la section Généralités) pour plus d’informations.
+Options sur l'écran
+Modifier données (+): Sélectionnez un numéro de ligne et choisissez ensuite cette option pour modifier cette donnée. Un écran de saisie s'affichera:
+Modifier toutes les données: Sélectionnez cette option pour modifier toutes les données d’un utilisateur. Un écran de saisie s'affichera:
+Attention
+Si vous souhaitez modifier le texte d’un ID utilisateur, vous devez d’abord le supprimer, puis entrer la nouvelle version. Si vous souhaitez par exemple modifier l’ID utilisateur "ABC" pour en faire "XYZ", vous devez supprimer "ABC" avant d’entrer "XYZ".
+Supprimer: Sélectionnez cette option pour supprimer l’utilisateur. Le système vous demandera une confirmation.
+Si Argus est utilisé, le système avertira que cet utilisateur n'est pas automatiquement supprimé d'Argus. Consultez l'aide générale sur Argus pour plus d'informations.
+Paramètres email: Sélectionnez cette option pour définir les paramètres liés au courriel du module d'acquisitions. Un écran de saisie s'affichera:
+Copier: Sélectionnez cette option pour copier les autorisations d’un autre ID utilisateur vers l’ID utilisateur à l’écran. Un écran de saisie apparaît. Entrez l’ID utilisateur dont vous souhaitez copier les données d’autorisation pour les attribuer à l’ID utilisateur affiché en cours. L’ID utilisateur vers lequel vous avez copié les données vous permet à présent d’accéder aux AFO associées également à l’ID utilisateur dont vous avez copié les données:
+Quand on copie les autorisations d’un utilisateur sélectionné vers un autre, le système demande si tous les paramètres modifiés de positionnement des colonnes doivent être copiés également :
+Note
+Ceci ne copie que les autorisations dans les AFO et optionnellement les paramètres des colonnes qui peuvent avoir été définis pour l’utilisateur existant copié. C’est-à-dire que cela n’inclut rien de ce que vous voyez dans la fiche de l’utilisateur (comme le Point Service, l’INST/Loc.pour les usagers, la cote de rangement, l’ID externe, l’adresse de courriel, le fichier, le droit de basculer, etc. car ces données font partie du login utilisateur).
+Modifier autorisations: Sélectionnez cette option pour définir les autorisations de cet ID utilisateur. L’écran-sommaire des modules s’affiche:
+Choisir AFO (+):Sélectionnez le module souhaité dans ce sommaire. Un écran de saisie comportant les AFO de ce module sera alors affiché. Vous pouvez maintenant sélectionner toutes les AFO auxquels cet ID utilisateur a accès, par exemple:
+Attention
+Pour quelques modules (acquisitions, prêt, périodiques) un deuxième écran est montré. Sur ce deuxième écran, il s’agit d’indiquer quelles fonctions l’utilisateur NE peut PAS exécuter:
+Note
+Lorsque RGPD est activé, il existe une option distincte Copier les paramètres de confidentialité, qui offre le choix de copier les paramètres de confidentialité d’un autre utilisateur vers cet utilisateur. Voir l'aide générale sur RGPD pour des informations générales.
+611.3 Somm
+611.3 Sommaire par AFOaire par AFO
+Grâce à cette option du menu, vous pouvez obtenir un sommaire des IDs utilisateurs permettant d’accéder à une AFO donnée.
+Lorsque vous sélectionnez cette option, un écran de saisie s’affiche:
+AFO: Entrez un numéro d’AFO. Un écran-sommaire apparaît ensuite affichant tous les IDs utilisateurs ayant accès à l’AFO indiquée:
+Attention
+Si vous vous êtes connecté au système à l’aide de l’ID utilisateur système, vous verrez la formulation de l’ID utilisateur suivi de l’ID utilisateur proprement dit. Si vous vous êtes connecté au système à l’aide d’un ID utilisateur "normal", le système n’affichera que le nom lié au ID utilisateur en question.
+Dans la dernière colonne, le système indique si l’ID utilisateur est équipé d’autorisations actives (de système) pour l’AFO concernée. Un ID utilisateur équipé d’autorisations de système se reconnaît à la mention "[ Sys! ]". Si le système n’affiche aucune indication, l’ID utilisateur est lié à une autorisation passive (de lecture seule).
+Options sur l'écran
+Ajouter utilisateur: Sélectionnez cette option pour ajouter un utilisateur au sommaire des AFO. Un écran de saisie, dans lequel vous pourrez taper l’utilisateur à ajouter, sera alors affiché.
+Modifier autorisations syst: Sélectionnez un numéro de ligne et choisissez ensuite cette option, afin d’attribuer ou non les autorisations actives (de système) à l’ID utilisateur lié à cet AFO.
+Il y a des privilèges attachés au code [Sys !] pour les fonctions de l’AFO suivante:
+• AFO 141 Paniers Permet de voir les autres utilisateurs ET d’accéder à l’icône de suppression Globale.
+• AFO 211 Introduire des commandes Pour créer/imprimer un bon de commande
+• AFO 213 Sommaire des commandes
+• AFO 243 Budgets Pour créer/imprimer un budget.
+• AFO 423 Gestion des documents Pour créer/imprimer un exemplaire
+• AFO 461 Administration des gestionnaires
+• AFO 481 Principaux paramètres de prêt Imprimer les paramètres
+Supprimer utilisateur de liste (+): Sélectionnez un utilisateur ; choisissez cette option afin de supprimer un utilisateur de la liste.
+Copier tous les utilisateurs vers AFO [ KK ]: Sélectionnez cette option pour que tous les utilisateurs qui ont accès à l’AFO en cours obtiennent accès à l’AFO que vous spécifiez maintenant. Un écran de saisie s’affichera. Entrez-y le numéro de l’AFO vers lequel les utilisateurs doivent être copiés. Les utilisateurs copiés seront ajoutés à la liste des utilisateurs déjà mentionnés pour l’AFO en question:
+Mot de passe supplémentaire: Sélectionnez cette option pour indiquer que le mot de passe supplémentaire est requis ou non lors du lancement de l’AFO. Ceci fournit la sécurité supplémentaire pour ces activités. L’utilisateur doit saisir un code spécial (défini dans l’AFO 611 Modification code d’accès, voir la section 611.14) avant d’avoir accès à l’AFO sécurisée de cette manière. Si un code d’accès est indiqué pour un AFO, cela est indiqué en haut de l’écran.
+Pour enlever ou changer les utilisateurs additionnels pour accéder à cette AFO, sélectionnez cette option de code d’accès de nouveau.
+611.4 Définit
+611.4 Définitionion mots de passe systmots de passe systèmeème
+Il vous est possible de modifier l’ID utilisateur système. Lorsque vous sélectionnez cette option du menu, un écran de saisie s’affiche:
+Zones sur l'écran
+Ancien code: Entrez l’ancien ID utilisateur système.
+Nouveau code: Entrez le nouveau ID utilisateur système.
+Répéter nouveau code: Entrez une deuxième fois le nouveau ID utilisateur système. Si le code que vous entrez ne correspond pas au code saisi dans le champ précédent, la procédure sera interrompue et le système signalera que l’ID utilisateur système n’a pas été modifié.
+Attention
+Les codes entrés ne sont pas affichés à l’écran.
+N’oubliez pas que l’ID utilisateur système doit être défini comme tout ID utilisateur afin que vous puissiez ouvrir une session.
+611.5
+611.5 Modification du mot de passeModification du mot de passe
+Il vous est possible de modifier le mot de passe de l'utilisateur actuellement connecté. Lorsque vous sélectionnez cette option du menu, un écran de saisie s’affiche:
+Zones sur l'écran
+Ancien mot de passe: Entrez l’ancien mot de passe.
+Nouveau mot de passe: Entrez le nouveau mot de passe.
+Répéter nouveau mot de passe: Entrez une seconde fois le nouveau mot de passe. Si le mot de passe entré ne correspond pas au mot de passe saisi au niveau du champ précédent, la procédure sera interrompue et le système signalera que le mot de passe n’a pas été modifié.
+Notes
+Les mots de passe entrés ne sont pas affichés à l’écran.
+Si la Gestion des mots de passe est utilisée, le code d’accès doit correspondre à ces critères. Ils seront affichés en haut de l’écran.
+Si un utilisateur oublie son mot de passe, il doit contacter Infor pour sa réinitialisation, qui sera faite ainsi :
+• Décochez le paramètre Connexion avec code d'accès pour cet utilisateur
+• Sauvegardez l’enregistrement
+• Cochez à nouveau le paramètre Connexion avec code d'accès pour cet utilisateur
+• Sauvegardez l’enregistrement
+• A la prochaine connexion de l’utilisateur, le mot de passe sera identique à l’ID de connexion
+• Quand l’utilisateur se connectera, le système lui demandera de changer le mot de passe
+Quand Argus est utilisé pour le SSO, cette option sera désactivée.
+Consultez l'aide générale sur Argus pour plus d'informations.
+611.
+611.66 Gestion des Gestion des restrirestricctions tions –– PPrêtrêt
+Cette option du menu vous permet d’associer certaines options à un utilisateur. Vous pouvez interdire l’accès d’utilisateurs à des options au sein des modules de Gestion du prêt et des usagers. Cette option se rapporte à l’AFO 411 ("Prêt") et à l’AFO 431 ("Administration des usagers").
+Si vous sélectionnez cette option du menu, un menu apparaît, affichant les options pouvant être associées à un usager:
+Options du menu affichées à l’écran
+Dans le menu, sélectionnez l’option de votre choix. Vous pouvez à présent ajouter des usagers à l’aide d’un écran de saisie ou, dans un écran-sommaire, ajouter et supprimer les usagers n’ayant pas accès à l’option en question.
+Attention
+La définition s’effectue de manière négative. Ceci signifie que tous les usagers ont en principe accès à l’option, sauf les usagers que vous saisirez sur cette liste.
+611.7
+611.7 Gestion des restriGestion des restricctions tions –– PrêtPrêt (suite)(suite)
+L’entretien de cette gestion des usagers se déroule exactement comme la " Gestion des restrictions – Prêt".
+611.
+611.88 Gestion des restrictions Gestion des restrictions –– AcquiAcquisitionssitionsCette option du menu vous permet d’associer certaines options à un usager. Vous pouvez interdire l’accès d’usagers à des options au sein du module d'Acquisitions. Cette option se rapporte à l’AFO 243 (Gestion des budgets) et 277 (Listes d'acquisitions).
+Si vous sélectionnez cette option du menu, un menu apparaît, affichant les options pouvant être associées à un usager:
+Options du menu affichées à l’écran
+Dans le menu, sélectionnez l’option de votre choix. Vous pouvez à présent ajouter des usagers à l’aide d’un écran de saisie ou, dans un écran-sommaire, ajouter et supprimer les usagers n’ayant pas accès à l’option en question.
+Attention
+La définition s’effectue de manière négative. Ceci signifie que tous les usagers ont en principe accès à cette option, sauf les usagers que vous saisirez sur cette liste.
+611.9
+611.9 Gestion des restrictions Gestion des restrictions -- Acquisitions Acquisitions (suite)(suite)
+L’entretien de cette gestion des usagers se déroule exactement comme la " Gestion des restrictions – Acquisitions”.
+611.10
+611.10 Gestion des restrictions Gestion des restrictions -- PériodiquesPériodiques
+Cette option du menu vous permet d’associer certaines options à un usager. Vous pouvez interdire l’accès d’usagers à des options au sein du module de Périodiques. Cette option se rapporte aux AFOs 311, 321 et 368.
+Si vous sélectionnez cette option du menu, un menu apparaît, affichant les options pouvant être associées à un usager:
+Options du menu affichées à l’écran
+Dans le menu, sélectionnez l’option de votre choix. Vous pouvez à présent ajouter des usagers à l’aide d’un écran de saisie ou, dans un écran-sommaire, ajouter et supprimer les usagers n’ayant pas accès à l’option en question.
+Attention
+La définition s’effectue de manière négative. Ceci signifie que tous les usagers ont en principe accès à cette option, sauf les usagers que vous saisirez sur cette liste.
+611.11
+611.11 Sommaire autorisationsSommaire autorisations
+Cette option du menu vous permet de visualiser ou d’imprimer les autorisations liées à un ou plusieurs IDs utilisateurs. Lorsque vous sélectionnez cette option du menu, un écran de saisie s’affiche:
+Zones sur l'écran
+A partir de l’utilisateur: Entrez l’ID utilisateur à partir duquel le sommaire doit être établi.
+Jusqu'à l’utilisateur: Entrez l’ID utilisateur jusqu’auquel le sommaire doit être établi.
+Attention
+Si vous souhaitez élaborer un sommaire de tous les IDs utilisateurs, n’entrez aucune donnée dans les champs "A partir de l’utilisateur " et "Jusqu'à l’utilisateur".
+Pour inst./loc.: Entrez un ou plusieurs codes pour les institutions et/ou les localisations (séparées par des virgules) pour lesquelles vous souhaitez établir un sommaire. Entrez un “*” (astérisque) à ce niveau si vous souhaitez visualiser un sommaire des utilisateurs pour toutes les localisations.
+Supprimer les autorisations : quand cette option est Activée, seule l’information sur la définition de l’utilisateur sera affichée, (et non pas les AFOs et les autorisations / restrictions associées).
+Après enregistrement des champs, un écran de saisie s’affiche vous proposant de sélectionner une option de sortie.
+Note
+La Date de modification du mot de passe dans la liste sera toujours celle d’Argus (quand actif).
+Le rapport peut contenir des lettres ou des numéros, ce qui indique des autorisations supplémentaires qui peuvent être définies pour les différents modules en AFO 611.
+AFO & lettre / chiffre
+Explication
+CFLYGEN
+Exemplaire á la volée, général
+CCFLYCREATE
+Exemplaire á la volée, création de notices
+CFLYSEARCH
+Exemplaire á la volée: recherche d’unde notice existante
+217 A
+Autorisation des sélections dans les fichiers potentiels
+217 B
+Création de commandes dans les fichiers potentiels
+217 C
+Création manuelle des fichiers potentiels
+217 D
+Ajout des titres dans les fichiers potentiels créés manuellement
+217 E
+Suppression des fichiers potentiels
+217 F
+Modification d’en-tête d’information de titres potentiels
+221 A
+Ajout de commande et réception par le même utilisateur
+232 A
+Réception et facturation par le même utilisateur
+232 B
+Ajout de commande et facturation par le même utilisateur
+243 A
+Création des détails du budget
+243 B
+Ajustement détails du budget
+243 C
+Changement du statut de budget
+243 D
+Changement des balances du budget
+243 E
+Création d’un groupe de budgets
+243 F
+Modification d’un groupe de budgets
+243 G
+Suppression d’un groupe de budgets
+243 H
+Suppression du budget
+277 A
+Accès aux listes de budgets par localisation
+277 D
+Création de listes de budgets par localisation
+277 E
+Correction de listes de budgets par localisation
+277 F
+Suppression de listes de budgets par localisation
+277 B
+Accès aux groupes de rapports
+277 G
+Création de groupes de rapports
+277 H
+Correction de groupes de rapports
+277 I
+Suppression de groupes de rapports
+277 C
+Accès aux listes de budgets par fournisseur
+277 J
+Création de listes de budgets par
+fournisseur
+277 K
+Correction de listes de budgets par fournisseur
+277 L
+Suppression listes de budgets par fournisseur
+277 M
+Accès aux correspondances budgets internes/externes
+277 N
+Création de correspondances budgets internes/externes
+277 O
+Correction de correspondances budgets internes/externes
+277 P
+Suppression de correspondances budgets internes/externes
+277 R
+Accès aux listes de distribution de commandes
+277 S
+Création de listes de distribution de commandes
+277 T
+Correction de listes de distribution de commandes
+277 U
+Suppression de listes de distribution de commandes
+277 V
+Accès aux listes de budgets par utilisateur
+277 V1
+Création de listes de budgets par utilisateur
+277 V2
+Modification de listes de budgets par utilisateur
+277 V3
+Suppression de listes de budgets par utilisateur
+277 W
+Accès aux listes de natures d’ouvrage par utilisateur
+277 W1
+Création de listes de natures d’ouvrage par utilisateur
+277 W2
+Modification de listes natures d’ouvrage par utilisateur
+277 W3
+Suppression de listes de natures d’ouvrage par utilisateur
+277 X
+Accès aux listes de loc. de réception
+277 X1
+Création de listes de loc. de réception
+277 X2
+Modification de listes de loc. de réception
+277 X3
+Suppression de listes de loc. de réception
+321 A
+Création d’abonnements
+321 B
+Suppression d’abonnements
+321 C
+Suppression d’info de réception
+368 A
+Changer valeurs par défaut utilisateur pour tous les utilisateurs
+368 B
+Modification LIVRAISON autorisée dans les valeurs par défaut utilisateur
+411 MAX
+Dépasser nbre max.
+411 VER
+Prolonger prêt
+413 VERRESV
+Prolongation d’exemplaires réservés
+414 WAIVE
+Abandonner paiements
+419 X
+Période de prolongation irrégulière
+431 A
+Modifier domicile
+431 A4-10
+Modifier autres adresses
+431 B
+Modifier code-barres
+431 C
+Abonnement
+431 D
+Consulter détails
+431 E
+Imprimer étiquette
+431 EG
+Garant Externe
+431 EXPMEM
+Modifier date d’échéance abonnement
+431 G
+Carte banque
+431 I
+Modifier identité
+431 INV
+Introduire usager
+431 K
+Copier enreg. usager
+431 L
+Modifier localisation
+431 LF
+Modifier lier à
+431 LO
+Modifier données locales
+431 LR
+Fiches liées
+431 LS
+Programme de fidélisation
+431 MAX
+Définir nbre max.
+431 MEMDSC
+Ajouter/Modifier code de remise abonnement
+431 MT
+Résiliation d’adhésion
+431 N
+Modifier Note interne
+431 O
+Percevoir abonnement
+431 OPZ
+Recherche par nom
+431 P
+Ajouter/modifier blocage
+431 PIN
+Mot de passe
+431 PR
+Modifier Préférences
+431 R
+Renouveler abonnement
+431 RESV
+Réservation outrepassé
+431 S
+Supprimer usager
+431 SC
+Ecole
+431 T
+Modifier seconde adresse
+431 TER
+Remb. abonnement
+431 V
+Modifier Messages divers
+431 W
+Modifier adresse professionnelle
+431 XXX
+Historique des paiements
+431 Z
+Liste noire
+PAYBACK
+Remboursement dépôts
+483/1
+Type impression
+483/2
+Format carte : mise en page
+483/3
+Format carte : textes
+483/4
+Format STI
+483/5
+Petite impression
+483/6
+Destinataires pour format carte
+483/7
+Rappels pour collections
+483/8
+Textes courriel
+483/9
+Périodes d’enregistrement de fichier d’impression
+483/10
+Paramètres de publipostage
+483/11
+Suppression production courriers
+483/12
+Paramètre format SMS
+483/13
+Localisations SMS
+484/1
+Jours de fermeture fixes
+484/2
+Jours de fermeture variables
+MODBORPAR
+Modifier paramètres usagers
+611.1
+611.122 Gestion des mots de pasGestion des mots de passese
+Cette option de menu vous permet de définir différents paramètres liés aux mots de passe pour les IDs utilisateurs du personnel. Lorsque vous aurez sélectionné cette option du menu, un écran de saisie s’affichera:
+Zones sur l'écran
+Nbre de jours valable: Entrez le nombre de jours pendant lesquels un mot de passe demeure valable. Une fois ce délai expiré, l’utilisateur doit obligatoirement modifier son mot de passe lors de l’ouverture d’une session. Quelques jours avant la date d’échéance, le système avertira l’utilisateur à l’ouverture d’une session.
+Nombre maximal de tentatives de connexions infructueuses autorisés : entrez le nombre de fois qu’un utilisateur peut saisir un mot de passe erroné. Quand ce nombre est atteint, le compte est verrouillé. Un aperçu de ces comptes verrouillés se trouve en AFO 611 – Sommaire des utilisateurs verrouillés, voir la section suivante pour plus d’informations.
+Nombre de cycles pour ne pas permettre la réutilisation d’un ancien mot de passe : entrez le nombre de fois qu’un mot de passe doit avoir été changé avant qu’un mot de passe ancien puisse être utilisé à nouveau. Ceci a pour but d’empêcher la ré-utilisation immédiate d’un ancien mot de passe.
+Longueur minimale et Maximale : entrez les limites de longueur du mot de passe.
+Caractères spécifiques : indiquez quels caractères spécifiques sont obligatoires dans les mots de passe du personnel.
+611.13
+611.13 Sommaire des utilisatSommaire des utilisateueurs verrouillésrs verrouillés
+Ce menu présente la liste des utilisateurs dont le compte est verrouillé après trop de tentatives de connexions infructueuses. Quand vous sélectionnez cette option, un écran sommaire s’affiche :
+Sélectionnez un nom d’utilisateur pour débloquer le compte. Le système demandera une confirmation.
+611.14
+611.14 Modification code d’aModification code d’accèsccès
+Un code d’accès dit "spécial" peut être associé à chaque activité. Ceci permet de protéger davantage les activités en question. Avant de pouvoir accéder aux AFO protégées de cette manière, les utilisateurs doivent entrer ce code spécial.
+Lorsque vous sélectionnez cette option du menu, un écran de saisie s’affiche:
+Zones sur l'écran
+Ancien code d’accès: Entrez l’ancien code.
+Nouveau code d’accès: Entrez le nouveau code.
+Répéter nouveau code d’accès: Entrez une seconde fois le nouveau code. Si le code entré ne correspond pas au code saisi au niveau du champ précédent, la procédure sera interrompue et le système signalera que le code d’accès particulier n’a pas été modifié.
+Notes
+Les mots de passe entrés ne sont pas affichés à l’écran.
+Si la Gestion des mots de passe est utilisée, le code d’accès doit correspondre à ces critères. Ils seront affichés en haut de l’écran.
+611.15
+611.15 Rôles autorisationsRôles autorisations
+Il est possible de copier les paramètres d’un ID utilisateur vers un autre ID. Cependant, il peut être nécessaire de copier d’un ID vers plusieurs autres IDs. Cette option de menu vous permet de le faire.
+Cela repose sur 2 paramètres dans la définition d'un ID utilisateur dans l'AFO 611 – Gestion utilisateurs:
+- Rôle d’autorisations
+- Ceci est un Rôle d’autorisations
+Si le 2ème paramètre est coché pour un utilisateur, alors cet utilisateur a les caractéristiques d’un rôle d’autorisations. Cela implique que toutes les autorisations et restrictions définies pour utilisateur forment un ensemble qui peut être copié.
+Le 1er paramètre est lié à une liste déroulante avec tous les rôles d’autorisations définis. A partir de là, un rôle d’autorisations peut être associé à l’utilisateur sélectionné. Quand un nouveau rôle d’autorisations est associé à l’utilisateur, les autorisations et restrictions dans les AFOs définies au niveau du rôle vont l’emporter sur celles définies précédemment au
+niveau de cet utilisateur (tous les paramètres copiés avec l’option Copier seront concernés par le rôle également).
+Evidemment, un utilisateur ne peut pas être un rôle et en même temps avoir un rôle associé.
+Lorsque vous sélectionnez cette option de menu, un écran sommaire s’affichera avec tous les rôles définis:
+Options sur l'écran
+Push des Autorisations: ici le “push” des autorisations et des restrictions définies au niveau du rôle est possible vers tous les utilisateurs associés au rôle sélectionné. Voir la section 611.15.2.
+Utilisateurs: affichage des utilisateurs associés au rôle sélectionné. Ici, les utilisateurs peuvent être associés à un rôle ou dissociés d’un rôle. Voir la section 611.15.3.
+611.15.1 Paramétrage
+Cette section décrit plus en détail l'utilisation et l'effet des deux paramètres dans la définition de l'ID utilisateur.
+611.15.1.1 Ceci est un Rôle d’autorisations
+Ceci est un Rôle d’autorisations: si ce paramètre est coché pour un utilisateur, alors cet utilisateur a les caractéristiques d’un rôle d’autorisations. Cela implique que toutes les autorisations et restrictions définies pour utilisateur forment un ensemble qui peut être copié.
+Le nom de l’utilisateur apparait maintenant en AFO 611 – Rôles autorisations comme “profil”. Un tel “utilisateur” n’est pas considéré comme un login standard, mais comme la base de la copie des autorisations et restrictions (en bloc).
+Si l’utilisateur n’est pas un rôle d’autorisations, cela est indiqué dans l’en-tête :
+Ainsi que dans l’en-tête des autorisations sous-jacentes :
+Note
+Les modifications faites ici ne sont pas automatiquement appliquées aux utilisateurs associés à ce rôle. Utilisez l'option Push des Autorisations dans les options du menu Rôles des autorisations pour mettre à jour les utilisateurs.
+611.15.1.2 Rôle d’autorisations
+Rôle d’autorisations: est lié à une liste déroulante avec tous les rôles d’autorisations définis. A partir de là, un rôle d’autorisations peut être associé à l’utilisateur sélectionné. Quand un nouveau rôle d’autorisations est associé à l’utilisateur, les autorisations et restrictions dans les AFOs définies au niveau du rôle vont l’emporter sur celles définies précédemment au niveau de cet utilisateur (tous les paramètres copiés avec l’option Copier seront concernés par le rôle également).
+Evidemment, un utilisateur ne peut pas être un rôle et en même temps avoir un rôle associé.
+Si un utilisateur est associé à un rôle d’autorisations, alors l’option “Modifier autorisations” affichera tout en mode lecture seulement. Exemple :
+Ceci parce que les autorisations sont dérivées du rôle associé.
+611.15.2 Push des Autorisations
+Push des Autorisations: ici le “push” des autorisations et des restrictions définies au niveau du rôle est possible vers tous les utilisateurs associés au rôle sélectionné. Cette action va passer outre les autorisations spécifiques et les restrictions au niveau de l’utilisateur. Si des modifications concernant les autorisations et/ou les restrictions sont faites pour un rôle
+spécifique, ces modifications ne sont pas automatiquement reportées sur tous les utilisateurs associés à ce rôleI. Dans ce cas, cette option doit être utilisée (à nouveau) pour mettre à jour les autorisations et les restrictions de tous les utilisateurs associés au rôle sélectionné.
+Sélectionnez une ligne et puis cette option, le système demande une confirmation:
+Après que vous ayez cliqué sur OK, le système va vous demander si vous voulez copier également les paramètres des colonnes. Voir le chapitre 611.2 pour d’autres informations (sur l’option Copier).
+611.15.3 Utilisateurs
+Utilisateurs: affichage des utilisateurs associés au rôle sélectionné. Ici, les utilisateurs peuvent être associés à un rôle ou dissociés d’un rôle.
+Sélectionnez une ligne et puis cette option, un écran sommaire s’affichera:
+Avec l’option Utilisateurs sur cet écran, les utilisateurs peuvent être liés à / déliés d’un rôle :
+Le résultat est le même que quand vous sélectionnez un rôle pour un utiisateur spécifique dans le paramètre Rôle d’autorisations . Mais ici vous pouvez le faire en bloc, en ajoutant ou en supprimant plusieurs utilisateurs en même temps.
+• Document control - Change History
+Version
+Date
+Change description
+Author
+1.0
+May 2008
+creation
+2.0
+June 2009
+new option for encryption; new screen shots; textual corrections, Cataloguing restrictions removed part of 2.0 updates
+3.0
+March 2011
+new user PUB; updated section on special login ID’s part of 2.0.06 updates
+4.0
+November 2013
+Textual improvements; new options for mobile stop selection, potentials file access, copying column settings part of 3.0 updates
+4.1
+April 2015
+French translations
+Céline Allegre
+5.0
+April 2018
+New options for password management, locked users, printing summary, authorizations by AFO; terminoloy changes; textual improvements; replaced all screen shots part of 3.0 updates
+6.0
+February 2020
+Select user from dropdown list; copy privacy settings; refer to Argus; textual improvements; replaced all screen shots part of 5.0 SP3 updates
+7.0
+February 2021
+New menu option for special access code; textual improvements; added explanatory table for summary report of authorizations part of 5.0 SP4 updates
+8.0
+February 2022
+New functionality for authorization roles part of 5.0 SP5 updates
